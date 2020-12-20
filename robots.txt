@@ -1,0 +1,2 @@
+Sitemap: https://hatchibombotar.com/sitemap.xml
+Sitemap: http://www.hatchibombotar.com/sitemap.xml

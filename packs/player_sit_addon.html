@@ -2,8 +2,16 @@
 <html lang="en">
 
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J07P7NP1T2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J07P7NP1T2');
+</script>
   <title>Hatchibombotar</title>
-  <!-- add icon link -->
   <link rel="icon" href="../images/logo_no_border.png" type="image/x-icon">
 
 
@@ -132,12 +140,14 @@
       float: center;
     }
 
+    /* Puts the text to the right */
     @media screen and (min-width: 600px) {
       .main {
         display: flex;
       }
     }
 
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
       .main {
         text-align: center;
@@ -148,6 +158,7 @@
       }
     }
 
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
     @media screen and (max-width: 400px) {
       .navbar a {
         float: none;
@@ -161,19 +172,11 @@
       .sideb {
         display: none;
       }
-    
-      .large_image {
-        display: none;
-      }
     }
 
-        @media screen and (min-width: 400px) {
-      .small_image {
-        display: none;
-      }
-    }
-
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
     @media screen and (max-width: 800px) {
+
       .row {
         display: inline;
       }
@@ -206,22 +209,32 @@
     <div class="sidea"></div>
     <div class="main">
       <div class="entry">
-        <img class="large_image" alt="Image of a Gravestone" width="300" src="../images/homepage.png">
-        <img class="small_image" alt="Image of a Gravestone" width="150" src="../images/homepage.png">
-        <p style="text-align:center;">I create high-quality addons for Minecraft Bedrock Edition. They can vary from
-          small tweaks to large gameplay changes. All of my addons are free and can be found on mcpedl or on my website.</p>
+        <img alt="Banner Image" width="720" src="../images/addons/sit/mcpedl_featured_image.png">
+        <p style="text-align:center;">This Pack Adds the Ability to sit on other player’s heads. This was inspired by
+          the Minecraft Ultimate Competition and the ability to sit on your teammates heads. Just jump on!</p>
+        <img alt="pack_icon" width="128" src="../images/pack_icons/player_sit.png">
+        <br>
+        <strong style="text-align:center;">Player Sit</strong>
+        <p style="text-align:center;">To Get On Your Friends You Use the Place block or Use Button.
+          <br>
+          After that you can ride them to your heart’s content.
+          <br>
+          This Works In the Sky, In Air and in Water. It Even Works In a Boat or Minecart.
+          <br>
+          To Exit Your Friends Just Simply Press the Jump Button.
+        </p>
+        <img alt="image" width="700" src="../images/addons/sit/player_sit_image.png">
+        <p style="text-align:center;">Someone sitting on another player</p>
+        <img alt="faq" height="50" src="../images/titles/FAQ.png">
+        <p style="text-align:center;">How do I sit on other players? </p>
+        <p style="text-align:center;">On Mobile Hold Down On them until you are on them. On All Other Devices use the
+          place block button.</p>
+        <img alt="Compatibility" height="50" src="../images/titles/Compatibility.png">
+        <p style="text-align:center;">All of my addons are compatible with all devices and all of my other addons. This
+          addon is compatible with a few other addons.</p>
+        <a href="../packs/downloads/PlayerSit.mcaddon" download>
+          <img src="../images/titles/Download.png" alt="download" height="100">
         </a>
-        <div class="packs_section">
-          <a href="https://hatchibombotar.github.io/packs/graves_addon.html">
-            <img class="icon" src="../images/resized_pack_icons/graves.png" alt="graves addon" width="150" height="150">
-          </a>
-          <a href="https://hatchibombotar.github.io/packs/chains_addon.html">
-            <img class="icon" src="../images/resized_pack_icons/climbable_chains.png" alt="chains addon" width="150" height="150">
-          </a>
-          <a href="https://hatchibombotar.github.io/packs/player_sit_addon.html">
-            <img class="icon" src="../images/resized_pack_icons/player_sit.png" alt="player sit addon" width="150" height="150">
-          </a>
-        </div>
       </div>
     </div>
     <div class="sideb"></div>
