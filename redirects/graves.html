@@ -25,47 +25,22 @@
     body {
       font-family: BebasNeue-Regular;
       margin: 0;
+      background: #d8d8d8;
     }
 
     /* Style the header */
     .header {
-      padding: 8px;
-      text-align: center;
+      padding: 1px;
       background: #f5f5f5;
+      text-align: center;
       color: white;
     }
 
     /* Increase the font size of the h1 element */
     .header h1 {
-      font-size: 90px;
+      font-size: 0px;
     }
 
-    /* Style the top navigation bar */
-    .navbar {
-      overflow: hidden;
-      background-color: #e9e9e9;
-    }
-
-    /* Style the navigation bar links */
-    .navbar a {
-      float: left;
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 5px 20px;
-      text-decoration: none;
-    }
-
-    /* Right-aligned link */
-    .navbar a.right {
-      float: right;
-    }
-
-    /* Change color on hover */
-    .navbar a:hover {
-      background-color: #ddd;
-      color: black;
-    }
 
     /* Ensure proper sizing */
     * {
@@ -79,21 +54,9 @@
       padding: 30px;
       /* Some padding */
       font-size: 20px;
-      flex: 80%;
+      text-align: center;
     }
 
-    /* Column container */
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .main>div {
-      background-color: #e4e4e4;
-      /* White background color */
-      padding: 40px;
-      /* Some padding */
-    }
 
     .footer {
       padding: 20px;
@@ -104,29 +67,15 @@
       /* Grey background */
     }
 
-    .sidea {
-      flex: 10%;
-      background-color: #d8d8d8;
-    }
 
-    .sideb {
-      flex: 10%;
-      background-color: #d8d8d8;
-    }
-
-    .image,
-    main p {
+    .icon {
       text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
     }
 
-    /* Puts the text to the right */
-    @media screen and (min-width: 600px) {
-      .main {
-        display: flex;
-      }
-    }
-
-    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
     @media screen and (max-width: 600px) {
       .main {
         text-align: center;
@@ -137,7 +86,6 @@
       }
     }
 
-    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
     @media screen and (max-width: 400px) {
       .navbar a {
         float: none;
@@ -151,11 +99,19 @@
       .sideb {
         display: none;
       }
+
+      .large_image {
+        display: none;
+      }
     }
 
-    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-    @media screen and (max-width: 800px) {
+    @media screen and (min-width: 400px) {
+      .small_image {
+        display: none;
+      }
+    }
 
+    @media screen and (max-width: 800px) {
       .row {
         display: inline;
       }
@@ -165,36 +121,49 @@
 </head>
 
 <body>
+  <script type="text/javascript">
+    var count = 5;
+    var redirect = "https://www.hatchibombotar.com";
 
+    function countDown() {
+      var timer =
+        document.getElementById("timer");
+      if (count > 0) {
+        count--;
+        timer.innerHTML = "Bringing you to the download in " + count + " seconds.";
+        setTimeout("countDown()", 1000);
+      } else {
+        window.location.href = redirect;
+        timer.innerHTML = "Redirecting you now.";
+      }
+    }
+  </script>
   <div class="header">
     <div id="center">
 
-      <a href="https://hatchibombotar.com/">
-        <img class="bannerImg" src="https://www.hatchibombotar.com/images/logo.png" alt="Website Banner" width="150" height="150">
+      <a href="https://hatchibombotar.github.io/">
+        <img class="bannerImg" src="https://www.hatchibombotar.com/images/logo_no_border.png" alt="Website Banner" width="80">
       </a>
-      <p style="font-family: BebasNeue-Regular; color:#f88400; font-size: 40px;">
+      <p>
+      <p class="headerText" style="font-family: BebasNeue-Regular; color:#f88400; font-size: 25px;">
         hatchibombotar
       </p>
     </div>
   </div>
 
-  <div class="navbar">
-    <a href="https:mcpedl.com/user/hatchibombotar/">MCPEDL Page</a>
-    <a href="#">Discord</a>
-    <a href="#"></a>
-    <a href="https://hatchibombotar.com/packs" class="right">Downloads</a>
+  <div class="main">
+    <img class="icon" src="https://www.hatchibombotar.com/images/resized_pack_icons/graves.png" alt="graves addon" width="150" height="150">
+    <br>
+    <span id="timer">
+      <script type="text/javascript">countDown();
+      </script>
+    </span>
   </div>
-  <div class="row">
-    <div class="sidea"></div>
-    <div class="main">
-      <p>404 - Page not found</p>
-    </div>
-    <div class="sideb"></div>
-  </div>
+
 
 
   <div class="footer">
-    <h2>Hatchibombotar 2020</h2>
+    <h2></h2>
   </div>
 </body>
 
