@@ -10,6 +10,12 @@ const projects = [
         "description": "All of my minecraft addons",
         "image": "/assets/images/projects/addons.png",
         "link": "https://mcpedl.com/user/hatchibombotar/"
+    },
+    {
+        "name":"Minecraft Manifest Generator",
+        "description": "Creates a basic manifest.json file for Minecraft: Bedrock Addons.",
+        "image": "/assets/images/projects/manifest-generator.png",
+        "link": "https://hatchibombotar.com/manifest-generator/"
     }
 ]
 const projectContainer = document.getElementById("project-container")
