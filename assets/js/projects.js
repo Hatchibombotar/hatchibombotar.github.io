@@ -16,6 +16,12 @@ const projects = [
         "description": "Creates a basic manifest.json file for Minecraft: Bedrock Addons.",
         "image": "/assets/images/projects/manifest-generator.png",
         "link": "https://hatchibombotar.com/manifest-generator/"
+    },
+    {
+        "name":"Magic Hat",
+        "description": "Pick things out of a hat",
+        "image": "/assets/images/projects/magic-hat.png",
+        "link": "https://hatchibombotar.com/magic-hat/"
     }
 ]
 const projectContainer = document.getElementById("project-container")
