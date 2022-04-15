@@ -55,6 +55,10 @@ body {
     .main>h1 {
         text-align: center;
     }
+    .navbar a {
+        text-align: center;
+        float: none !important;
+    }
 }
 
 .navbar a:hover {
