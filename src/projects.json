@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Minecraft Add-ons",
+        "description": "Lots of small-scale bedrock addons",
+        "href": "https://mcpedl.com/user/hatchibombotar/"
+    },
+    {
+        "name": "Hoax Shader",
+        "description": "Minecraft 1.16+ texture 'shaders'",
+        "href": "https://mcpedl.com/hoax-shader/"
+    },
+    {
+        "name": "Minicrafter Maker",
+        "description": "2D character creator",
+        "href": "https://hatchibombotar.com/minicrafter-maker/"
+    },
+    {
+        "name": "Regolith Filters",
+        "description": "Work on regolith filters (addon modifying scripts)",
+        "href": "https://github.com/Hatchibombotar/useful-regolith-filters"
+    },
+    {
+        "name": "Other Projects",
+        "description": "My other projects on Github",
+        "href": "https://github.com/Hatchibombotar/"
+    }
+]

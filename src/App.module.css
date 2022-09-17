@@ -1,0 +1,47 @@
+.App {
+  margin: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 6px;
+  background-color: #f5f5f5;
+  outline: 2px black solid;
+}
+
+.header {
+  min-height: 100%;
+  margin-bottom: 60px;
+}
+
+.title {
+  height: 100%;
+  overflow:hidden
+}
+
+.title h1 {
+  float: left;
+  font-weight: normal !important;
+  margin: 0;
+}
+
+.title img {
+  height: 30px;
+  pointer-events: none;
+  padding: 10px;
+  float: right;
+}
+
+.header p {
+  margin: 5px 0;
+}
+
+.link {
+  color: #b318f0;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
