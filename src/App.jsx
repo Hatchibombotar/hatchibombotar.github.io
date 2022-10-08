@@ -1,6 +1,7 @@
 import logo from './assets/logo.png';
 import styles from './App.module.css';
 import projects from "./projects.json"
+import skills from "./skills.json"
 
 function App() {
   return (
@@ -11,11 +12,12 @@ function App() {
         </div>
         <p>Developer</p>
       </header>
-      <Projects></Projects>
+      <Projects/>
+      <Skills/>
       <div>
         <h2>Contact</h2>
-        <p>- Discord - hatchibombotar#3794</p>
-        <p>- Email - <a href="mailto:hatchibombotar.mc@gmail.com">hatchibombotar.mc@gmail.com</a></p>
+        <p>Discord - hatchibombotar#3794</p>
+        <p>Email - <a href="mailto:hatchibombotar.mc@gmail.com">hatchibombotar.mc@gmail.com</a></p>
       </div>
     </div>
   );
@@ -27,12 +29,27 @@ function Projects() {
   <p>
     <For each={projects}>{(project) =>
       <p>
-        - 
+        
         <a href={project.href}>
           {project.name}
         </a>
         <a> - </a> 
         {project.description} 
+      </p>
+    }</For>
+  </p>
+  </>
+}
+
+function Skills() {
+  return <>
+  <h2>Skills</h2>
+  <p>
+    <For each={skills}>{(skill) =>
+      <p>
+        {skill.name}
+        <a> - </a> 
+        {skill.level} 
       </p>
     }</For>
   </p>
