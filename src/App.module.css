@@ -1,13 +1,15 @@
 .App {
-  margin: 10px;
   /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  padding: 6px;
   background-color: #f5f5f5;
-  /* outline: 2px black solid; */
   
-  border: #000000 solid 2px;
+  height: 100vh;
+  
+  padding: 6px;
+  outline: #000000 solid 2px;
   border-radius: 6px;
+  margin: 10px;
+  height: calc(100vh - 24px);
 }
 
 .header {
@@ -36,7 +38,7 @@
 .title img {
   height: 50px;
   pointer-events: none;
-  padding: 10px;
+  margin: 10px;
   float: right;
 }
 
@@ -50,10 +52,19 @@
 
 @media screen and (max-width: 345px) {
   .title img {
+    height: 30px;
     float: unset;
     display: block;
   }
   .title > div {
     float: unset;
   }
+  .header {
+    margin-bottom: 0;
+  }
+}
+
+.content {  
+  max-height: calc(100vh - 30px);
+  overflow-y: scroll;
 }
