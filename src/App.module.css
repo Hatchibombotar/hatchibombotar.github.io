@@ -76,7 +76,7 @@
   column-gap: 1vw;
   row-gap: 1vw;
 
-  max-width: 650px;
+  max-width: 700px;
 }
 
 @media only screen and (max-width: 500px) {
