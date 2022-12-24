@@ -6,7 +6,7 @@
   height: 100vh;
   
   padding: 6px;
-  outline: #000000 solid 2px;
+  border: #000000 solid 2px;
   border-radius: 6px;
   margin: 10px;
   height: calc(100vh - 24px);
@@ -85,7 +85,7 @@
 }
 
 .project {
-  outline: #000000 solid 2px;
+  border: #000000 solid 2px;
   border-radius: 6px;
   margin: 4px;
   text-align: center;
@@ -93,7 +93,7 @@
 
 .project > img {
   width: calc(100% - 20px);
-  outline: #000000 solid 2px;
+  border: #000000 solid 2px;
   margin: 10px;
   border-radius: 6px;
   /* padding: 3px; */
