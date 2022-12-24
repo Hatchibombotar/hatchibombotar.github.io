@@ -9,7 +9,6 @@
 
 - [Other Projects - My other projects on Github](https://github.com/Hatchibombotar?tab=repositories)
 
-
 ## Skills
 - JS/HTML/CSS - Advanced
 

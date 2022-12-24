@@ -14,6 +14,7 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
+    "solid-heroicons": "^3.1.1",
     "solid-js": "^1.4.7",
     "solid-markdown": "^1.2.0"
   }

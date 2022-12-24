@@ -14,7 +14,6 @@
 
 .header {
   min-height: 100%;
-  margin-bottom: 60px;
 }
 
 .title {
@@ -46,7 +45,7 @@
   margin: 5px 0;
 }
 
-.markdownContainer h2 {
+.main h2 {
   font-weight: 600;
 }
 
@@ -67,4 +66,78 @@
 .content {  
   max-height: calc(100vh - 30px);
   overflow-y: scroll;
+}
+
+.projects {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1vw;
+  row-gap: 1vw;
+
+  max-width: 650px;
+}
+
+@media only screen and (max-width: 500px) {
+  .projects {
+    display: block;
+  }
+}
+
+.project {
+  outline: #000000 solid 2px;
+  border-radius: 6px;
+  margin: 4px;
+  text-align: center;
+}
+
+.project > img {
+  width: calc(100% - 20px);
+  outline: #000000 solid 2px;
+  margin: 10px;
+  border-radius: 6px;
+  /* padding: 3px; */
+  background-color: #eaeaeb;
+  aspect-ratio: 1.39;
+}
+
+.projectActions {
+  text-align: left;
+  margin: 0 8px;
+  margin-bottom: 5px;
+}
+
+.projectActions svg, .projectActions img {
+  height: 25px !important;
+  width: 25px !important;
+  aspect-ratio: 1;
+}
+
+.projectActions > a > * {
+  color: black !important;
+  margin: 3px;
+}
+
+.projectActions > a> *:hover {
+  transform: scale(1.15);
+}
+
+.projectsSection {
+  display: flex;
+  justify-content: center;
+}
+
+.main, .centeredSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  height: 100px;
+}
+
+ul {
+  list-style-type: square;
+  text-align: center;
 }
