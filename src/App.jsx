@@ -7,10 +7,10 @@ import { FiLink, FiGithub } from 'solid-icons/fi'
 
 import { SiJavascript, SiHtml5, SiCss3, SiPython } from 'solid-icons/si'
 
-import SolidIcon from "./assets/icons/SolidIcon.svg"
-import SolidIconDark from "./assets/icons/SolidIconDark.svg"
-import MCIcon from "./assets/icons/minecraft.svg"
-import MCIconDark from "./assets/icons/minecraftDark.svg"
+import SolidIcon from "./assets/icon/SolidIcon.svg"
+import SolidIconDark from "./assets/icon/SolidIconDark.svg"
+import MCIcon from "./assets/icon/minecraft.svg"
+import MCIconDark from "./assets/icon/minecraftDark.svg"
 
 function App() {
   return (
