@@ -142,3 +142,37 @@ ul {
   list-style-type: square;
   text-align: center;
 }
+
+.skill, .skillDefault, .skillMultiple {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.skill * {
+  margin: 0 10px;
+}
+
+.skill .skillIcon, .skill .skillHoverIcon {
+  height: 25px;
+  width: 25px;
+  aspect-ratio: 1;
+  fill: currentColor;
+}
+
+
+.skill:hover .skillDefault .skillIcon {
+  color: var(--colour) !important;
+}
+
+.skillMultiple:hover .skillIcon {
+  display: none;
+}
+
+.skillMultiple .skillHoverIcon {
+  display: none;
+}
+
+.skillMultiple:hover .skillHoverIcon {
+  display: unset;
+}

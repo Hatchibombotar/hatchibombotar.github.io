@@ -3,9 +3,14 @@ import styles from './App.module.css';
 
 import Markdown from "solid-markdown";
 
-import { Icon } from "solid-heroicons";
-import { link as linkIcon } from "solid-heroicons/solid";
-import githubIcon from "./assets/github.svg"
+import { FiLink, FiGithub } from 'solid-icons/fi'
+
+import { SiJavascript, SiHtml5, SiCss3, SiPython } from 'solid-icons/si'
+
+import SolidIcon from "./assets/Icons/SolidIcon.svg"
+import SolidIconDark from "./assets/Icons/SolidIconDark.svg"
+import MCIcon from "./assets/Icons/minecraft.svg"
+import MCIconDark from "./assets/Icons/minecraftDark.svg"
 
 function App() {
   return (
@@ -82,13 +87,13 @@ function Projects() {
           <div class={styles.projectActions}>
             {"link" in project ?
               <a href={project.link}>
-                <Icon path={linkIcon} />
+                <FiLink />
               </a>
               : null
             }
             {"github" in project ?
               <a href={project.github}>
-                <img src={githubIcon} />
+                <FiGithub />
               </a>
               : null
             }
@@ -99,18 +104,76 @@ function Projects() {
   </div>
 }
 
+const skillsData = [
+  {
+    name: "JavaScript",
+    level: "Advanced",
+    icon: SiJavascript,
+    colour: "#FBD569"
+  },
+  {
+    name: "HTML",
+    level: "Advanced",
+    icon: SiHtml5,
+    colour: "#DD5538"
+  },
+  {
+    name: "CSS",
+    level: "Advanced",
+    icon: SiCss3,
+    colour: "#51A4EE"
+  },
+  {
+    name: "SolidJS",
+    level: "Intermediate",
+    iconType: "multiple",
+    icon: SolidIconDark,
+    hoverIcon: SolidIcon
+  },
+  {
+    name: "Python",
+    level: "Intermediate",
+    icon: SiPython,
+    colour: "#4578A6"
+  },
+  {
+    name: "Minecraft: Bedrock Addons",
+    level: "Expert",
+    iconType: "multiple",
+    icon: MCIconDark,
+    hoverIcon: MCIcon
+  }
+]
+
 function Skills() {
   return <div>
-    <Markdown>{`
-- JS/HTML/CSS - Advanced
+    <For each={skillsData}>{(skill) =>
+      <div class={styles.skill}>{() => {
 
-- SolidJS - Intermediate
-
-- Python - Intermediate
-
-- Minecraft Addons - Expert
-  `}</Markdown>
+        const SkillIcon = skill.icon ?? EmptyIcon
+        const SkillHoverIcon = skill.hoverIcon ?? EmptyIcon
+        if (skill.iconType == "multiple") {
+          return <div class={styles.skillMultiple}>
+            <img size={25} class={styles.skillIcon} src={SkillIcon}/>
+            <img size={25} class={styles.skillHoverIcon} src={SkillHoverIcon} />
+            {skill.name} - {skill.level}
+          </div>
+        } else if (skill.iconType == "external") {
+          return <div class={styles.skillDefault} style={{ "--colour": skill.colour }}>
+            <img size={25} class={styles.skillIcon} src={SkillIcon} /> {skill.name} - {skill.level}
+          </div>
+        } else {
+          return <div class={styles.skillDefault} style={{ "--colour": skill.colour }}>
+            <SkillIcon size={25} class={styles.skillIcon} /> {skill.name} - {skill.level}
+          </div>
+        }
+      }}</div>
+    }</For>
   </div>
+}
+
+function EmptyIcon() {
+  return <></>
 }
 
 function Contact() {

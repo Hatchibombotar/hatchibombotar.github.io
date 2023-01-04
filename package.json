@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "solid-heroicons": "^3.1.1",
+    "solid-icons": "^1.0.4",
     "solid-js": "^1.4.7",
     "solid-markdown": "^1.2.0"
   }
