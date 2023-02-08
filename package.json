@@ -11,7 +11,8 @@
   "license": "MIT",
   "devDependencies": {
     "vite": "^3.0.0",
-    "vite-plugin-solid": "^2.3.0"
+    "vite-plugin-solid": "^2.3.0",
+    "sass": "^1.58.0"
   },
   "dependencies": {
     "solid-heroicons": "^3.1.1",

@@ -1,0 +1,184 @@
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: #f5f5f5;
+
+  height: 100vh;
+
+  padding: 6px;
+  border: #000000 solid 2px;
+  border-radius: 6px;
+  margin: 10px;
+  height: calc(100vh - 24px);
+  overflow: hidden;
+}
+
+.header {
+  min-height: 100%;
+  p {
+    margin: 5px 0;
+  }
+}
+
+.title {
+  height: 100%;
+  overflow: hidden;
+
+  >div {
+    float: left;
+
+    h1 {
+      font-weight: normal !important;
+      margin: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  }
+
+  img {
+    height: 50px;
+    pointer-events: none;
+    margin: 10px;
+    float: right;
+  }
+}
+
+.main h2 {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 345px) {
+  .title img {
+    height: 30px;
+    float: unset;
+    display: block;
+  }
+
+  .title>div {
+    float: unset;
+  }
+
+  .header {
+    margin-bottom: 0;
+  }
+}
+
+.content {
+  max-height: calc(100vh - 30px);
+  overflow-y: scroll;
+}
+
+
+
+.projectsSection {
+  display: flex;
+  justify-content: center;
+
+  .projects {
+    display: grid;
+  
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1vw;
+    row-gap: 1vw;
+  
+    max-width: 700px;
+  
+    @media only screen and (max-width: 500px) {
+      display: block;
+    }
+
+    .project {
+      border: #000000 solid 2px;
+      border-radius: 6px;
+      margin: 4px;
+      text-align: center;
+    
+      >img {
+        width: calc(100% - 20px);
+        border: #000000 solid 2px;
+        margin: 10px;
+        border-radius: 6px;
+        /* padding: 3px; */
+        background-color: #eaeaeb;
+        aspect-ratio: 1.39;
+      }
+    
+      .projectActions {
+        text-align: left;
+        margin: 0 8px;
+        margin-bottom: 5px;
+    
+        svg,
+        img {
+          height: 25px !important;
+          width: 25px !important;
+          aspect-ratio: 1;
+        }
+    
+        >a>* {
+          color: black !important;
+          margin: 3px;
+        }
+      }
+    }
+  }
+}
+
+.projectActions .projectActions>a>*:hover {
+  transform: scale(1.15);
+}
+
+
+.main,
+.centeredSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer {
+  height: 100px;
+}
+
+ul {
+  list-style-type: square;
+  text-align: center;
+}
+
+.skill,
+.skillDefault,
+.skillMultiple {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.skill * {
+  margin: 0 10px;
+}
+
+.skill .skillIcon,
+.skill .skillHoverIcon {
+  height: 25px;
+  width: 25px;
+  aspect-ratio: 1;
+  fill: currentColor;
+}
+
+
+.skill:hover .skillDefault .skillIcon {
+  color: var(--colour) !important;
+}
+
+.skillMultiple:hover .skillIcon {
+  display: none;
+}
+
+.skillMultiple .skillHoverIcon {
+  display: none;
+}
+
+.skillMultiple:hover .skillHoverIcon {
+  display: unset;
+}

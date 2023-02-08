@@ -1,5 +1,5 @@
 import logo from './assets/logo.png';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 import Markdown from "solid-markdown";
 
