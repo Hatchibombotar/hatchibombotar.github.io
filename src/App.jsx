@@ -126,9 +126,8 @@ const skillsData = [
   {
     name: "SolidJS",
     level: "Intermediate",
-    iconType: "multiple",
-    icon: SolidIconDark,
-    hoverIcon: SolidIcon
+    iconType: "image",
+    icon: SolidIcon
   },
   {
     name: "Python",
@@ -139,9 +138,8 @@ const skillsData = [
   {
     name: "Minecraft: Bedrock Addons",
     level: "Expert",
-    iconType: "multiple",
-    icon: MCIconDark,
-    hoverIcon: MCIcon
+    iconType: "image",
+    icon: MCIcon
   }
 ]
 
@@ -149,31 +147,21 @@ function Skills() {
   return <div>
     <For each={skillsData}>{(skill) =>
       <div class={styles.skill}>{() => {
-
-        const SkillIcon = skill.icon ?? EmptyIcon
-        const SkillHoverIcon = skill.hoverIcon ?? EmptyIcon
-        if (skill.iconType == "multiple") {
-          return <div class={styles.skillMultiple}>
-            <img size={25} class={styles.skillIcon} src={SkillIcon}/>
-            <img size={25} class={styles.skillHoverIcon} src={SkillHoverIcon} />
-            {skill.name} - {skill.level}
-          </div>
-        } else if (skill.iconType == "external") {
-          return <div class={styles.skillDefault} style={{ "--colour": skill.colour }}>
-            <img size={25} class={styles.skillIcon} src={SkillIcon} /> {skill.name} - {skill.level}
+        const SkillIcon = skill.icon
+        if (skill.iconType == "image") {
+          return <div>
+            <img size={25} class={styles.skillIcon} src={SkillIcon} />
           </div>
         } else {
-          return <div class={styles.skillDefault} style={{ "--colour": skill.colour }}>
-            <SkillIcon size={25} class={styles.skillIcon} /> {skill.name} - {skill.level}
+          return <div style={{ "--colour": skill.colour }}>
+            <SkillIcon size={25} class={styles.skillIcon} />
           </div>
         }
-      }}</div>
+      }}
+        {skill.name} - {skill.level}
+      </div>
     }</For>
   </div>
-}
-
-function EmptyIcon() {
-  return <></>
 }
 
 function Contact() {

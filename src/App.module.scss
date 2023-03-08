@@ -13,6 +13,7 @@
 
 .header {
   min-height: 100%;
+
   p {
     margin: 5px 0;
   }
@@ -76,13 +77,13 @@
 
   .projects {
     display: grid;
-  
+
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1vw;
     row-gap: 1vw;
-  
+
     max-width: 700px;
-  
+
     @media only screen and (max-width: 500px) {
       display: block;
     }
@@ -92,7 +93,7 @@
       border-radius: 6px;
       margin: 4px;
       text-align: center;
-    
+
       >img {
         width: calc(100% - 20px);
         border: #000000 solid 2px;
@@ -102,19 +103,19 @@
         background-color: #eaeaeb;
         aspect-ratio: 1.39;
       }
-    
+
       .projectActions {
         text-align: left;
         margin: 0 8px;
         margin-bottom: 5px;
-    
+
         svg,
         img {
           height: 25px !important;
           width: 25px !important;
           aspect-ratio: 1;
         }
-    
+
         >a>* {
           color: black !important;
           margin: 3px;
@@ -145,39 +146,32 @@ ul {
   text-align: center;
 }
 
-.skill,
-.skillDefault,
-.skillMultiple {
+.skill {
   display: flex;
   align-items: center;
   margin: 10px;
-}
 
-.skill * {
-  margin: 0 10px;
-}
+  div {
+    display: flex;
+    align-items: center;
+  }
 
-.skill .skillIcon,
-.skill .skillHoverIcon {
-  height: 25px;
-  width: 25px;
-  aspect-ratio: 1;
-  fill: currentColor;
-}
+  * {
+    margin: 0 10px;
+  }
 
+  .skillIcon {
+    height: 25px;
+    width: 25px;
+    aspect-ratio: 1;
+    fill: currentColor;
+    transition: 3s cubic-bezier(1, 1, 0, 0);
+    filter: grayscale(100%) brightness(0.4);
+  }
 
-.skill:hover .skillDefault .skillIcon {
-  color: var(--colour) !important;
-}
-
-.skillMultiple:hover .skillIcon {
-  display: none;
-}
-
-.skillMultiple .skillHoverIcon {
-  display: none;
-}
-
-.skillMultiple:hover .skillHoverIcon {
-  display: unset;
+  &:hover .skillIcon {
+    color: var(--colour) !important;
+    transition: unset;
+    filter: unset;
+  }
 }
