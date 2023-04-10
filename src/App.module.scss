@@ -3,12 +3,27 @@
   background-color: #f5f5f5;
 
 
+  @extend %glass;
   padding: 6px;
-  border: #000000 solid 2px;
-  border-radius: 6px;
   margin: 10px;
   height: calc(100svh - 24px);
   overflow: hidden;
+}
+
+%glass {
+  background: rgba(255, 255, 255, 80%);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  // blur is horrid for performance :(
+  // backdrop-filter: blur(3.8px);
+  // -webkit-backdrop-filter: blur(3.8px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+%sticker {
+  border: #000000 solid 2px;
+
+  border-radius: 6px;
 }
 
 .header {
@@ -38,6 +53,8 @@
 
   img {
     height: 50px;
+    width: auto;
+    aspect-ratio: 81/100;
     pointer-events: none;
     margin: 10px;
     float: right;
@@ -89,19 +106,21 @@
     }
 
     .project {
-      border: #000000 solid 2px;
-      border-radius: 6px;
+      @extend %glass;
       margin: 4px;
       text-align: center;
 
-      >img {
-        width: calc(100% - 20px);
-        border: #000000 solid 2px;
+      @media only screen and (max-width: 500px) {
         margin: 10px;
-        border-radius: 6px;
+      }
+
+      .image {
+        @extend %glass;
+        width: calc(100% - 20px);
+        margin: 10px;
         /* padding: 3px; */
         background-color: #eaeaeb;
-        aspect-ratio: 1.39;
+        aspect-ratio: 1.36;
       }
 
       .projectActions {
@@ -174,4 +193,8 @@ ul {
     transition: unset;
     filter: unset;
   }
+}
+
+a:-webkit-any-link {
+  color: #004cbe;
 }

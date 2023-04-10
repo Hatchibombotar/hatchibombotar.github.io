@@ -1,4 +1,4 @@
-import logo from './assets/logo.png';
+import logo from './assets/logo_small.png';
 import styles from './App.module.scss';
 
 import Markdown from "solid-markdown";
@@ -23,7 +23,7 @@ function App() {
               <p>Developer</p>
             </div>
 
-            <img src={logo} alt="My Logo" class={styles.logo}></img>
+            <img src={logo} alt="My Logo" class={styles.logo} height="100" width="81"></img>
           </div>
 
         </header>
@@ -52,6 +52,7 @@ const projectData = [
     "name": "Lovely Light Theme",
     "description": "An aethesticly pleasing editor theme for VSCode",
     "image": "/projects/lovely-light.svg",
+    "alt": "An image of my light mode theme.",
     "link": "https://marketplace.visualstudio.com/items?itemName=Hatchibombotar.lovely-light",
     "github": "https://github.com/Hatchibombotar/lovely-light-vscode-theme"
   },
@@ -59,12 +60,14 @@ const projectData = [
     "name": "Minicrafter Maker",
     "description": "A 2D character creator based off of the one in Minecraft",
     "image": "/projects/minicrafter-maker.png",
+    "alt": "An image of my character creator.",
     "link": "https://hatchibombotar.com/minicrafter-maker/",
     "github": "https://github.com/Hatchibombotar/minicrafter-maker"
   },
   {
     "name": "Minecraft Add-Ons",
     "image": "/projects/addons.png",
+    "alt": "A preview of my some of my addons.",
     "description": "Addons for Minecraft: Bedrock Edition",
     "link": "https://mcpedl.com/user/hatchibombotar/"
   },
@@ -81,19 +84,21 @@ function Projects() {
           <h3>{project.name}</h3>
           <Markdown>{project.description}</Markdown>
           {"image" in project ?
-            <img src={project.image} />
+            <a href={project.link}>
+              <img src={project.image} class={styles.image} alt={project.alt} />
+            </a>
             : null
           }
           <div class={styles.projectActions}>
             {"link" in project ?
-              <a href={project.link}>
-                <FiLink />
+              <a href={project.link} aria-label="Go to the project page.">
+                <FiLink/>
               </a>
               : null
             }
             {"github" in project ?
-              <a href={project.github}>
-                <FiGithub />
+              <a href={project.github} aria-label="Go to the project github.">
+                <FiGithub/>
               </a>
               : null
             }
@@ -150,7 +155,7 @@ function Skills() {
         const SkillIcon = skill.icon
         if (skill.iconType == "image") {
           return <div>
-            <img size={25} class={styles.skillIcon} src={SkillIcon} />
+            <img width={25} class={styles.skillIcon} src={SkillIcon} alt={`skill icon for ${skill.name}`}/>
           </div>
         } else {
           return <div style={{ "--colour": skill.colour }}>
