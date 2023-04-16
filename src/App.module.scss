@@ -82,8 +82,25 @@
 }
 
 .content {
-  max-height: calc(100svh - 30px);
+  max-height: calc(100svh - 40px);
   overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    border-radius: 4px;
+    width: 10px;
+    background: #fcfcfc;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #c4c4c4;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a2a2a2;
+  }
 }
 
 
@@ -192,6 +209,15 @@ ul {
     color: var(--colour) !important;
     transition: unset;
     filter: unset;
+  }
+
+  @media (max-width: 500px) {
+
+    .skillIcon {
+      color: var(--colour) !important;
+      transition: unset;
+      filter: unset;
+    }
   }
 }
 
