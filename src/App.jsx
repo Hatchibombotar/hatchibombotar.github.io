@@ -5,7 +5,7 @@ import Markdown from "solid-markdown";
 
 import { FiLink, FiGithub } from 'solid-icons/fi'
 
-import { SiJavascript, SiHtml5, SiCss3, SiPython } from 'solid-icons/si'
+import { SiJavascript, SiHtml5, SiCss3, SiPython, SiTypescript, SiTailwindcss, SiAstro, SiSass } from 'solid-icons/si'
 
 import SolidIcon from "./assets/icon/solidIcon.svg"
 import SolidIconDark from "./assets/icon/SolidIconDark.svg"
@@ -112,6 +112,36 @@ function Projects() {
 
 const skillsData = [
   {
+    name: "TypeScript",
+    level: "Expert",
+    icon: SiTypescript,
+    colour: "#3178c6"
+  },
+  {
+    name: "Tailwind CSS",
+    level: "Expert",
+    icon: SiTailwindcss,
+    colour: "#38bdf8"
+  },
+  {
+    name: "Astro",
+    level: "Expert",
+    icon: SiAstro,
+    colour: "#ff5d00"
+  },
+  {
+    name: "SASS",
+    level: "Expert",
+    icon: SiSass,
+    colour: "#c76494"
+  },
+  {
+    name: "Solid JS",
+    level: "Intermediate",
+    iconType: "image",
+    icon: SolidIcon
+  },
+  {
     name: "JavaScript",
     level: "Advanced",
     icon: SiJavascript,
@@ -130,19 +160,13 @@ const skillsData = [
     colour: "#51A4EE"
   },
   {
-    name: "SolidJS",
-    level: "Intermediate",
-    iconType: "image",
-    icon: SolidIcon
-  },
-  {
     name: "Python",
     level: "Intermediate",
     icon: SiPython,
     colour: "#4578A6"
   },
   {
-    name: "Minecraft: Bedrock Addons",
+    name: "Minecraft Add-Ons",
     level: "Expert",
     iconType: "image",
     icon: MCIcon
@@ -150,9 +174,9 @@ const skillsData = [
 ]
 
 function Skills() {
-  return <div class="">
+  return <div class="grid sm:grid-cols-2">
     <For each={skillsData}>{(skill) =>
-      <div class="flex items-center m-2 text-left grayscale brightness-[0.4] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">{() => {
+      <div class="flex items-center m-2 text-left sm:grayscale sm:brightness-[0.4] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">{() => {
         const SkillIcon = skill.icon
         if (skill.iconType == "image") {
           return <div class="mx-2 flex items-center">
@@ -164,7 +188,7 @@ function Skills() {
           </div>
         }
       }}
-        {skill.name} - {skill.level}
+        {skill.name}
       </div>
     }</For>
   </div>
