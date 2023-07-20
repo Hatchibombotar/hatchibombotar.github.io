@@ -13,36 +13,44 @@ import MCIcon from "./assets/icon/minecraft.svg"
 import MCIconDark from "./assets/icon/minecraftDark.svg"
 
 import './index.css';
-import { createResource } from 'solid-js';
+import { Show, createResource } from 'solid-js';
 
 
 function App() {
   return (
-    <div class="bg-cool-100 rounded-2xl m-3 max-h-screen overflow-hidden">
-      <div class="m-2 overflow-y-scroll max-h-[calc(100vh-40px)]">
-        <header class="overflow-hidden">
-          <div class="">
-            <div class="float-left">
-              <h1 class="text-3xl m-1">Hatchibombotar</h1>
-              <p class="m-1">Developer</p>
-            </div>
+    <div class="bg-gray-100">
+      {/* <div class="relative left-0 bg-gray-50 w-24">
+        <ul>
+          <li>Projects</li>
+        </ul>
+      </div> */}
+      <div class="mx-auto max-w-2xl px-4 text-center sm:text-left">
 
-            <img src={logo} alt="My Logo" class="h-12 w-auto float-right m-2" height="100" width="81"></img>
+        <br class="my-5" />
+        <header class="py-8">
+          <div class="flex items-center justify-center sm:justify-normal">
+            <img src={logo} class="h-16"></img>
+            <div class="mx-4 text-left">
+              <h1 class="text-3xl font-semibold">Hatchibombotar</h1>
+              <p class="">Developer</p>
+            </div>
           </div>
 
         </header>
+        <hr class="my-5" />
 
-        <main class="text-center flex justify-center items-center flex-col">
-          {/* <Markdown>{homeContent}</Markdown> */}
-          <h2 class="text-2xl p-4 font-semibold">Projects</h2>
-          <Projects />
 
-          <h2 class="text-2xl p-4 font-semibold">Skills</h2>
-          <Skills />
+        <h2 class="text-2xl font-semibold my-3">Projects</h2>
+        <Projects />
+        <hr class="my-5" />
 
-          <h2 class="text-2xl p-4 font-semibold">Contact</h2>
-          <Contact />
-        </main>
+        <h2 class="text-2xl font-semibold my-3">Skills</h2>
+        <Skills />
+        <hr class="my-5" />
+
+        <h2 class="text-2xl font-semibold my-3">Contact</h2>
+        <Contact />
+
         <footer class="h-24" />
       </div>
     </div>
@@ -52,7 +60,7 @@ function App() {
 const projectData = [
   {
     "name": "Lovely Light Theme",
-    "description": "An aethesticly pleasing editor theme for VSCode",
+    "description": "An aethesticly pleasing light editor theme for VSCode",
     "image": "/projects/lovely-light.svg",
     "alt": "An image of my light mode theme.",
     "link": "https://marketplace.visualstudio.com/items?itemName=Hatchibombotar.lovely-light",
@@ -72,29 +80,37 @@ const projectData = [
     "alt": "A preview of my some of my addons.",
     "description": "Addons for Minecraft: Bedrock Edition",
     "link": "https://mcpedl.com/user/hatchibombotar/"
+  },
+  {
+    "name": "cubemaps",
+    "image": "/projects/cubemaps.png",
+    "alt": "An example cubemap.",
+    "description": "A simple and performant cubemap viewer package made for the web.",
+    "link": "https://hatchibombotar.com/cubemap/"
   }
 ]
 function Projects() {
 
   const [githubUserData] = createResource(async () => {
     const data = await fetch("https://api.github.com/users/Hatchibombotar")
-    // console.log(await data.json())
     return await data.json()
   })
-  console.log(githubUserData())
-  return <div class="">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-2xl">
+
+  return <div class="overflow-x-scroll">
+    <div class="w-max">
       <For each={projectData}>{(project) =>
-        <div class="bg-cool-50 text-center m-1 rounded-2xl shadow-xl">
-          <h3 class="f font-bold text-xl m-3">{project.name}</h3>
-          <Markdown class="m-2 prose">{project.description}</Markdown>
-          {"image" in project ?
-            <a href={project.link}>
-              <img src={project.image} class="w-[calc(100%-24px)] m-2 rounded-2xl shadow-md inline aspect-[1.36] bg-[#eaeaeb]" alt={project.alt} />
-            </a>
-            : null
-          }
-          <div class="flex m-3 mt-1">
+        <div class="bg-white m-1 rounded-xl shadow-md w-56 overflow-hidden inline-block">
+          <a href={project.link} class="">
+            <img src={project.image} class="w-full -mt-1 mx-auto aspect-[1.36] " alt={project.alt} />
+          </a>
+
+          <div class="mx-3 my-2 h-24">
+            <h3 class="font-semibold my-0">{project.name}</h3>
+            <div class=" text-gray-700">{project.description}</div>
+          </div>
+
+
+          <div class="flex m-3">
             {"link" in project ?
               <a href={project.link} aria-label="Go to the project page.">
                 <FiLink size={24} />
@@ -110,10 +126,13 @@ function Projects() {
           </div>
         </div>
       }</For>
-      <div class="bg-cool-50 text-center m-1 rounded-2xl shadow-xl">
-        <h3 class="font-bold text-xl m-3">Github</h3>
-        <div class="text-left border-l-2 px-4 mx-6 border-opacity-20">
-          <div class="flex items-center justify-left my-1">
+
+      <div class="bg-white m-1 pb-2 rounded-xl shadow-md w-56 h-full overflow-hidden inline-block">
+
+        <div class="text-left mb-2 px-2 mx-2 border-opacity-20 aspect-[1.36] flex flex-col">
+          <h3 class="font-semibold my-2">Github</h3>
+          
+          <div class="flex items-center justify-left">
             <img src={githubUserData()?.avatar_url} class="h-10 border rounded-full mr-2 border-opacity-20 border-solid" />
             <p class="font-semibold">{githubUserData()?.login}</p>
           </div>
@@ -121,9 +140,18 @@ function Projects() {
           <p class="ml-2">{githubUserData()?.followers} Followers</p>
         </div>
 
-        <Markdown class="m-2 mb-5 prose">Find some of my other projects on my [Github Page](https://github.com/Hatchibombotar?tab=repositories)</Markdown>
+        <div class="mx-3 h-24 my-2">
+        </div>
+
+        <div class="flex m-3">
+          <a href={"https://github.com/hatchibombotar/"} target='_blank' aria-label="Go to the project page.">
+            <FiLink size={24} />
+          </a>
+        </div>
       </div>
+
     </div>
+
   </div>
 }
 
@@ -191,9 +219,9 @@ const skillsData = [
 ]
 
 function Skills() {
-  return <div class="grid sm:grid-cols-2">
+  return <div class="grid sm:grid-cols-3">
     <For each={skillsData}>{(skill) =>
-      <div class="flex items-center m-2 text-left sm:grayscale sm:brightness-[0.4] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">{() => {
+      <div class="flex sm:justify-normal justify-center items-center m-2 text-left sm:grayscale sm:brightness-[0.4] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">{() => {
         const SkillIcon = skill.icon
         if (skill.iconType == "image") {
           return <div class="mx-2 flex items-center">
@@ -212,12 +240,11 @@ function Skills() {
 }
 
 function Contact() {
-  return <div>
-    <Markdown class="prose">{`
-- Discord - hatchibombotar#3794
-
-- Email - [hatchibombotar.mc@gmail.com](mailto:hatchibombotar.mc@gmail.com)
-  `}</Markdown>
+  return <div class="prose">
+    <ul>
+      <li>Discord - @hatchibombotar</li>
+      <li>Email - <a href="mailto:hatchibombotar.mc@gmail.com">hatchibombotar.mc@gmail.com</a></li>
+    </ul>
   </div>
 }
 

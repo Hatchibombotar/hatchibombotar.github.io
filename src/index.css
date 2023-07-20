@@ -7,14 +7,13 @@ body {
 }
 
 *::-webkit-scrollbar {
-  border-radius: 4px;
-  width: 10px;
+  @apply w-2.5 h-2.5 rounded-full;
   background: #fcfcfc;
 }
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  border-radius: 4px;
+  @apply w-2.5 h-2.5 rounded-full;
   background: #c4c4c4;
 }
 
