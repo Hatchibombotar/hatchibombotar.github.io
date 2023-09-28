@@ -1,0 +1,46 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="My website, including links to my projects & my skills."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light" />
+
+    <title>Hatchibombotar</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-gray-100">
+    <slot />
+  </body>
+</html>
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  *::-webkit-scrollbar {
+    @apply w-2.5 h-2.5 rounded-full;
+    background: #fcfcfc;
+  }
+
+  /* Handle */
+  *::-webkit-scrollbar-thumb {
+    @apply w-2.5 h-2.5 rounded-full;
+    background: #c4c4c4;
+  }
+
+  /* Handle on hover */
+  *::-webkit-scrollbar-thumb:hover {
+    background: #a2a2a2;
+  }
+</style>

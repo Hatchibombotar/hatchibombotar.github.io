@@ -1,0 +1,95 @@
+---
+import SubLayout from "../layouts/SubLayout.astro";
+
+type Submissions = {
+    data: {
+        title: string
+        image: string
+        short_description: string
+        username: string
+        update_date: string,
+        publish_date: string,
+        slug: string
+    }[]
+}
+
+const mcpedl_submissions = (await (async () => {
+  const req = await fetch(
+    `https://api.mcpedl.com/api/submissions?user_nickname=${"hatchibombotar"}&include_skins=1&per_page=10&page=1`
+  );
+  return await req.json();
+})()) as Submissions;
+
+
+---
+<SubLayout class="">
+    <div class="prose mt-6">
+        <h2 class="">Minecraft Bedrock Add-On Development</h2>
+        <p class="">
+            I work on complex add-ons and maps for minecraft bedrock with experience using mcfunctions and the Script API.
+        </p>
+        <h3>Experience in Add-On Sub-Systems</h3>
+        <ul>
+            <li>Blocks</li>
+            <li>Items</li>
+            <li>Entities, Client Entities, Render Controllers</li>
+            <li>Molang, Animations, and Animation Controllers</li>
+            <li>Commands & MCFunctions</li>
+            <li>Script API</li>
+            <li>Editor Extensions</li>
+        </ul>
+        
+        <h3>Other Skills</h3>
+        <ul>
+            <li>Minecraft Specific build tools such as <code>Regolith</code> and <code>Bridge.</code></li>
+            <li>Git and Github version control systems</li>
+            <li>Javascript & Web development</li>
+        </ul>
+        <hr class="my-4"/>
+
+        <h3 class="">Contact</h3>
+        <ul>
+            <li>Discord - @hatchibombotar</li>
+            <li>
+                Email - <a href="mailto:hatchibombotar.mc@gmail.com"
+                >hatchibombotar.mc@gmail.com</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <hr class="my-4"/>
+    <h2 class="font-semibold text-xl">Add-On Concepts</h2>
+    <p>Some of my more advanced add-ons that I don't end up finishing.</p>
+    <div class="my-2">
+        <iframe class="w-full h-auto aspect-video my-4" width="560" height="315" src="https://www.youtube.com/embed/MI4DML57cpA?si=nHttgSJXAwpxrJq9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe class="w-full h-auto aspect-video my-4" width="560" height="315" src="https://www.youtube.com/embed/3VjdqDaB0y4?si=Tkvjw1fkFK4DMnPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+    <hr class="my-4"/>
+    <h2 class="text-xl font-semibold mb-2">Free Published Add-Ons</h2>
+    <div class="grid grid-cols-2 gap-8">
+      {
+        mcpedl_submissions.data.map(
+          ({
+            title,
+            image,
+            update_date,
+            publish_date,
+            slug,
+          }) => (
+            <a class="group cursor-pointer" target="_blank" href={"https://mcpedl.com/" + slug}>
+                <img src={image} class="mb-2 group-hover:brightness-105" />
+                <h2 class="font-semibold my-1 group-hover:underline underline-offset-4 group-hover:text-green-700">
+                    {title}
+                </h2>
+                <p class="text-xs text-neutral-700">
+                    {new Date(update_date != "0" ? update_date : publish_date).toDateString()}
+                </p>
+            </a>
+          )
+        )
+      }
+    </div>
+
+</SubLayout>
