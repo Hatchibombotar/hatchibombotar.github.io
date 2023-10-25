@@ -1,5 +1,12 @@
 export default [
     {
+        name: "OCR Exam Reference Language Interpreter",
+        description: "An interpreter the OCR pseudocode used in exams.",
+        image: "/projects/ocr-pseudocode.png",
+        link: "https://hatchibombotar.com/ocr-pseudocode-interpreter/",
+        github: "https://github.com/Hatchibombotar/ocr-pseudocode-interpreter"
+    },
+    {
         name: "Lovely Light Theme",
         description: "An aethesticly pleasing light editor theme for VSCode",
         image: "/projects/lovely-light.svg",
@@ -26,8 +33,7 @@ export default [
         name: "cubemaps",
         image: "/projects/cubemaps.png",
         alt: "An example cubemap.",
-        description:
-            "A simple and performant cubemap viewer package made for the web.",
+        description: "A simple and performant cubemap viewer package made for the web.",
         link: "https://hatchibombotar.com/cubemap/",
     }
 ]

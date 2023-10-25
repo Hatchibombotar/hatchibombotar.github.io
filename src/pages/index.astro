@@ -37,7 +37,7 @@ const github_user = await (async () => {
           {
               projects.map((project) => (
                   <div class="bg-white m-1 rounded-xl shadow-md w-56 overflow-hidden inline-block">
-                      <a href={project.link} class="">
+                      <a href={project.link} target="_blank" class="">
                           <img
                               src={project.image}
                               class="w-full -mt-1 mx-auto aspect-[1.36]"
@@ -52,13 +52,14 @@ const github_user = await (async () => {
   
                       <div class="flex m-3">
                           {project.link ? (
-                              <a href={project.link} aria-label="Go to the project page.">
+                              <a href={project.link} target="_blank" aria-label="Go to the project page.">
                                   <FiLink size={24} />
                               </a>
                           ) : <></>}
                           {project.github ? (
                               <a
                                   href={project.github}
+                                  target="_blank"
                                   aria-label="Go to the project github."
                               >
                                   <FiGithub size={24} />
