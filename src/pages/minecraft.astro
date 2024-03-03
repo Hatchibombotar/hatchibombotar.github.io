@@ -1,6 +1,8 @@
 ---
 import SubLayout from "../layouts/SubLayout.astro";
 
+import {formatDate} from "../utils"
+
 type Submissions = {
     data: {
         title: string
@@ -84,7 +86,7 @@ const mcpedl_submissions = (await (async () => {
                     {title}
                 </h2>
                 <p class="text-xs text-neutral-700">
-                    {new Date(update_date != "0" ? update_date : publish_date).toDateString()}
+                    {formatDate(new Date(update_date != "0" ? update_date : publish_date).toDateString())}
                 </p>
             </a>
           )

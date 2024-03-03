@@ -7,6 +7,7 @@ import {
     SiTailwindcss,
     SiAstro,
     SiSass,
+    SiGo,
 } from "solid-icons/si";
 const SolidIcon = "/assets/icon/solidIcon.svg";
 const MCIcon = "/assets/icon/minecraft.svg";
@@ -19,10 +20,16 @@ export default [
         colour: "#3178c6",
     },
     {
-        name: "Tailwind CSS",
-        level: "Expert",
-        icon: SiTailwindcss,
-        colour: "#38bdf8",
+        name: "JavaScript",
+        level: "Advanced",
+        icon: SiJavascript,
+        colour: "#FBD569",
+    },
+    {
+        name: "Go",
+        level: "",
+        icon: SiGo,
+        colour: "#007d9c",
     },
     {
         name: "Astro",
@@ -31,22 +38,10 @@ export default [
         colour: "#ff5d00",
     },
     {
-        name: "SASS",
-        level: "Expert",
-        icon: SiSass,
-        colour: "#c76494",
-    },
-    {
         name: "Solid JS",
         level: "Intermediate",
         iconType: "image",
         icon: SolidIcon,
-    },
-    {
-        name: "JavaScript",
-        level: "Advanced",
-        icon: SiJavascript,
-        colour: "#FBD569",
     },
     {
         name: "HTML",
@@ -59,6 +54,12 @@ export default [
         level: "Advanced",
         icon: SiCss3,
         colour: "#51A4EE",
+    },
+    {
+        name: "Tailwind CSS",
+        level: "Expert",
+        icon: SiTailwindcss,
+        colour: "#38bdf8",
     },
     {
         name: "Python",
