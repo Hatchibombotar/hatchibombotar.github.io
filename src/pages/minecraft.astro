@@ -1,4 +1,5 @@
 ---
+import Contact from "../components/Contact.astro";
 import SubLayout from "../layouts/SubLayout.astro";
 
 import {formatDate} from "../utils"
@@ -50,13 +51,7 @@ const mcpedl_submissions = (await (async () => {
         <hr class="my-4"/>
 
         <h3 class="">Contact</h3>
-        <ul>
-            <li>Discord - @hatchibombotar</li>
-            <li>
-                Email - <a href="mailto:hatchibombotar.mc@gmail.com"
-                >hatchibombotar.mc@gmail.com</a>
-            </li>
-        </ul>
+        <Contact/>
     </div>
 
 
