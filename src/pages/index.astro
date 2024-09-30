@@ -1,10 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import Root from "../layouts/Root.astro";
 
-import { FiLink, FiGithub } from "solid-icons/fi";
-import skills from "../data/skills"
-import projects from "../data/projects"
-import Contact from "../components/Contact.astro";
+import { FiLink, FiGithub, FiExternalLink } from "solid-icons/fi";
+import skills from "../data/skills";
+import postOrder from "../data/post_order";
+import projects from "../data/projects";
+import Layout from "../layouts/Layout.astro";
+import FeedPost from "../components/FeedPost.astro";
 
 const logo = "/assets/logo_small.png";
 
@@ -12,128 +15,81 @@ const github_user = await (async () => {
   const data = await fetch("https://api.github.com/users/Hatchibombotar");
   return await data.json();
 })();
+
+const postCollectionInOrder = await Promise.all(
+  postOrder.map(async (postSlug) => {
+    const post = await getEntry("posts", postSlug);
+    if (post == undefined) {
+      throw Error("Failed to fetch post: " + postSlug);
+    }
+    return post;
+  })
+);
 ---
 
 <Layout>
-    <div class="mx-auto max-w-2xl px-4 text-center sm:text-left">
-      <br class="my-5" />
-      <header class="pt-8">
-        <div class="flex items-center justify-center sm:justify-normal">
-          <img src={logo} class="h-16" transition:name="header-icon" />
-          <div class="mx-4 text-left">
-            <h1 class="text-3xl font-semibold" transition:name="header-text">Hatchibombotar</h1>
-            <p class="">Developer</p>
-          </div>
+  <h2 class="text-2xl font-bold my-3">Recent Projects</h2>
+  <div class="flex flex-col">
+    {
+      postCollectionInOrder.slice(0, 3).map((postFile) => {
+        const post = postFile.data;
+        return (
+          <FeedPost post={post}></FeedPost>
+        );
+      })
+    }
+  </div>
+  <a href="/projects" class="underline">View {postCollectionInOrder.length} More</a>
+
+  <hr class="my-5" />
+
+  <h2 class="text-2xl font-bold my-3">Skills</h2>
+  <div class="grid sm:grid-cols-3">
+    {
+      skills.map((skill) => (
+        <div class="flex sm:justify-normal justify-center items-center m-2 text-left sm:grayscale sm:brightness-[0.2] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">
+          {skill.iconType == "image" ? (
+            <div class="mx-2 flex items-center">
+              <img
+                width={25}
+                src={skill.icon as string}
+                alt={`skill icon for ${skill.name}`}
+              />
+            </div>
+          ) : (
+            <div
+              style={{ "--colour": skill.colour }}
+              class="mx-2 flex items-center fill-[var(--colour)]"
+            >
+              <skill.icon size={25} class="fill-inherit" />
+            </div>
+          )}
+          {skill.name}
         </div>
-        <nav class="mt-4 mb-2">
-            <a class="underline" href="/minecraft">Minecraft Marketplace</a>
-        </nav>
-      </header>
-      <hr class="my-5" transition:name="header-seperator" />
+      ))
+    }
+  </div>
+  <hr class="my-5" />
 
-      <h2 class="text-2xl font-semibold my-3">Projects</h2>
-      <div class="overflow-x-scroll">
-        <div class="w-max">
-          {
-              projects.map((project) => (
-                  <div class="bg-white m-1 rounded-xl shadow-md w-56 overflow-hidden inline-block">
-                      <a href={project.link} target="_blank" class="">
-                          <img
-                              src={project.image}
-                              class="w-full -mt-1 mx-auto aspect-[1.36]"
-                              alt={project.alt}
-                          />
-                      </a>
-  
-                      <div class="mx-3 my-2 h-24">
-                          <h3 class="font-semibold my-0">{project.name}</h3>
-                          <div class=" text-gray-700">{project.description}</div>
-                      </div>
-  
-                      <div class="flex m-3">
-                          {project.link ? (
-                              <a href={project.link} target="_blank" aria-label="Go to the project page.">
-                                  <FiLink size={24} />
-                              </a>
-                          ) : <></>}
-                          {project.github ? (
-                              <a
-                                  href={project.github}
-                                  target="_blank"
-                                  aria-label="Go to the project github."
-                              >
-                                  <FiGithub size={24} />
-                              </a>
-                          ) : <></>}
-                      </div>
-                  </div>
-              ))
-          }
-  
-          <div class="bg-white m-1 pb-2 rounded-xl shadow-md w-56 h-full overflow-hidden inline-block" >
-              <div class="text-left mb-2 px-2 mx-2 border-opacity-20 aspect-[1.36] flex flex-col">
-  
-                  <h3 class="font-semibold my-2">Github</h3>
-  
-                  <div class="flex items-center justify-left">
-                      <img
-                          src={github_user?.avatar_url}
-                          class="h-10 border rounded-full mr-2 border-opacity-20 border-solid"
-                      />
-                      <p class="font-semibold">{github_user?.login}</p>
-                  </div>
-                  <p class="ml-2">{github_user?.public_repos} Public Repos</p>
-                  <p class="ml-2">{github_user?.followers} Followers</p>
-              </div>
-  
-              <div class="mx-3 h-24 my-2"></div>
-  
-              <div class="flex m-3">
-                  <a
-                      href={"https://github.com/hatchibombotar/"}
-                      target="_blank"
-                      aria-label="Go to the project page."
-                  >
-                      <FiLink size={24} />
-                  </a>
-              </div>
-          </div>
+  <h2 class="text-2xl font-bold my-3" id="contact">Contact</h2>
+
+  <ul class="prose underline-offset-2">
+    <li>
+      <div class="flex items-center gap-2">
+        <span>Discord: </span>
+        <a href="https://discord.com/users/629396893440671765" target="_blank">
+          @hatchibombotar
+        </a>
       </div>
+    </li>
+    <li>
+      <div class="flex items-center gap-2">
+        <span>Email: </span>
+        <a href="mailto:hatchibombotar.mc@gmail.com" target="_blank">
+          hatchibombotar.mc@gmail.com
+        </a>
       </div>
-      <hr class="my-5" />
+    </li>
+  </ul>
 
-      <h2 class="text-2xl font-semibold my-3">Skills</h2>
-      <div class="grid sm:grid-cols-3">
-        {
-            skills.map((skill) => (
-                <div class="flex sm:justify-normal justify-center items-center m-2 text-left sm:grayscale sm:brightness-[0.4] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">
-                    {
-                        skill.iconType == "image" ?
-                            <div class="mx-2 flex items-center">
-                                <img
-                                    width={25}
-                                    src={skill.icon as string}
-                                    alt={`skill icon for ${skill.name}`}
-                                />
-                            </div> :
-                            <div
-                                style={{ "--colour": skill.colour }}
-                                class="mx-2 flex items-center fill-[var(--colour)]"
-                            >
-                                <skill.icon size={25} class="fill-inherit" />
-                            </div>
-
-                    }
-                    {skill.name}
-                </div>
-            ))
-        }
-    </div>
-        <hr class="my-5" />
-
-        <h2 class="text-2xl font-semibold my-3" id="contact">Contact</h2>
-        <Contact/>
-
-        <footer class="h-24"></footer>
-    </div>
 </Layout>

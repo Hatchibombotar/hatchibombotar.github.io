@@ -1,10 +1,10 @@
 ---
-import Layout from "./Layout.astro";
+import Root from "./Root.astro";
 
 const logo = "/assets/logo_small.png";
 ---
 
-<Layout>
+<Root>
   <div class="mx-auto max-w-2xl px-4 pb-4 text-center sm:text-left">
     <header class="flex items-center">
       <a class="flex items-center my-4" href="/">
@@ -18,4 +18,4 @@ const logo = "/assets/logo_small.png";
     <hr transition:name="header-seperator" class="mb-2" />
     <slot/>
   </div>
-</Layout>
+</Root>

@@ -1,6 +1,6 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
+  "name": "hatchibombotar-dot-com",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "dev": "astro dev",
@@ -19,9 +19,9 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
-    "@astrojs/solid-js": "^4.0.1",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.5.16",
+    "@astrojs/solid-js": "^4.4.2",
+    "@astrojs/tailwind": "^5.1.1",
+    "astro": "^4.15.9",
     "solid-heroicons": "^3.1.1",
     "solid-icons": "^1.0.12",
     "solid-js": "^1.7.12",

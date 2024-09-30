@@ -1,0 +1,33 @@
+---
+import { getEntry } from "astro:content";
+
+import skills from "../data/skills";
+import postOrder from "../data/post_order";
+import Layout from "../layouts/Layout.astro";
+import FeedPost from "../components/FeedPost.astro";
+
+
+const postCollectionInOrder = await Promise.all(
+  postOrder.map(async (postSlug) => {
+    const post = await getEntry("posts", postSlug);
+    if (post == undefined) {
+      throw Error("Failed to fetch post: " + postSlug);
+    }
+    return post;
+  })
+);
+---
+
+<Layout>
+  <h2 class="text-2xl font-bold my-3">All Projects</h2>
+  <div class="flex flex-col">
+    {
+      postCollectionInOrder.map((postFile) => {
+        const post = postFile.data;
+        return (
+          <FeedPost post={post}></FeedPost>
+        );
+      })
+    }
+  </div>
+</Layout>
