@@ -1,13 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  theme: {
-    extend: {
-      colors: {
-        "cool-50": "#fcfcfc",
-        "cool-100": "#eeeeee",
-        "cool-200": "#a1a1a1",
-      },
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	theme: {
+		extend: {
+			screens: {
+				"xs": "340px",
+			},
+			colors: {
+				"cool-50": "#fcfcfc",
+				"cool-100": "#eeeeee",
+				"cool-200": "#a1a1a1",
+			},
 			typography(theme) {
 				return {
 					DEFAULT: {
@@ -29,11 +32,11 @@ module.exports = {
 					}
 				}
 			}
-    },
+		},
 
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+	},
+	plugins: [
+		require('@tailwindcss/typography'),
+	],
 }
 
