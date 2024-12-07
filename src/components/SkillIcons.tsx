@@ -11,10 +11,10 @@ export default function SkillIcons() {
                 function toggleLights() {
                     setLightsOn(!lightsOn())
                     if (lightsOn()) {
-                        const click = new Audio('sound/switch1.ogg');
+                        const click = new Audio('sound/switch1.mp3');
                         click.play()
                     } else {
-                        const click = new Audio('sound/switch2.ogg');
+                        const click = new Audio('sound/switch2.mp3');
                         click.play()
                     }
                 }
