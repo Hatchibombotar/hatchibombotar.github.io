@@ -1,11 +1,9 @@
 ---
 import { getEntry } from "astro:content";
 
-import skills from "../data/skills";
 import postOrder from "../data/post_order";
 import Layout from "../layouts/Layout.astro";
 import FeedPost from "../components/FeedPost.astro";
-
 
 const postCollectionInOrder = await Promise.all(
   postOrder.map(async (postSlug) => {

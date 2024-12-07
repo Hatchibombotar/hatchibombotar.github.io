@@ -1,40 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { SiDiscord } from "solid-icons/si";
-import { IoMail } from "solid-icons/io";
 ---
 
 <Layout>
+  <h2 class="text-2xl font-bold my-3">Contact</h2>
   <p class="mb-3">
     Want to ask about one of my projects or about hiring me? <br> You can reach me
     by email or discord.
   </p>
-  <div class="grid sm:grid-cols-2 gap-4">
-    <a
-      href="mailto:hatchibombotar.mc@gmail.com"
-      class="block bg-neutral-50 rounded-lg shadow-sm border px-3 py-4 my-2"
-      target="_blank"
-    >
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <IoMail class="fill-black h-5 w-5" />
-        <span class="text-lg text-neutral-800 font-semibold">
-          hatchibombotar.mc@gmail.com
-        </span>
-      </div>
-      <span class="text-neutral-800 text-sm">Email</span>
-    </a>
-    <a
-      href="https://discord.com/users/629396893440671765"
-      class="block bg-neutral-50 rounded-lg shadow-sm border px-3 py-4 my-2"
-      target="_blank"
-    >
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <SiDiscord class="fill-black h-5 w-5" />
-        <span class="text-lg text-neutral-800 font-semibold">
+  <ul class="prose underline-offset-2">
+    <li>
+      <div class="flex items-center gap-2">
+        <span>Discord: </span>
+        <a href="https://discord.com/users/629396893440671765" target="_blank">
           @hatchibombotar
-        </span>
+        </a>
       </div>
-      <span class="text-neutral-800 text-sm">Discord</span>
-    </a>
-  </div>
+    </li>
+    <li>
+      <div class="flex items-center gap-2">
+        <span>Email: </span>
+        <a href="mailto:hatchibombotar.mc@gmail.com" target="_blank">
+          hatchibombotar.mc@gmail.com
+        </a>
+      </div>
+    </li>
+  </ul>
 </Layout>

@@ -58,9 +58,9 @@ export default [
         icon: SiPython,
         colour: "#4578A6",
     },
-    {
-        name: "Minecraft Add-Ons",
-        iconType: "image",
-        icon: MCIcon,
-    },
+    // {
+    //     name: "Minecraft Add-Ons",
+    //     iconType: "image",
+    //     icon: MCIcon,
+    // },
 ];

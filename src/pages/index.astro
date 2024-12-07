@@ -9,6 +9,8 @@ import projects from "../data/projects";
 import Layout from "../layouts/Layout.astro";
 import FeedPost from "../components/FeedPost.astro";
 
+import SkillIcons from "../components/SkillIcons"
+
 const logo = "/assets/logo_small.png";
 
 const github_user = await (async () => {
@@ -44,31 +46,7 @@ const postCollectionInOrder = await Promise.all(
   <hr class="my-5" />
 
   <h2 class="text-2xl font-bold my-3">Skills</h2>
-  <div class="grid xs:grid-cols-2 sm:grid-cols-3">
-    {
-      skills.map((skill) => (
-        <div class="flex xs:justify-normal justify-center items-center m-2 text-left sm:grayscale sm:brightness-[0.2] hover:filter-none hover:ease-[cubic-bezier(1,1,0,0)] hover:transition duration-[14s]">
-          {skill.iconType == "image" ? (
-            <div class="mx-2 flex items-center">
-              <img
-                width={25}
-                src={skill.icon as string}
-                alt={`skill icon for ${skill.name}`}
-              />
-            </div>
-          ) : (
-            <div
-              style={{ "--colour": skill.colour }}
-              class="mx-2 flex items-center fill-[var(--colour)]"
-            >
-              <skill.icon size={25} class="fill-inherit" />
-            </div>
-          )}
-          {skill.name}
-        </div>
-      ))
-    }
-  </div>
+  <SkillIcons client:load />
   <hr class="my-5" />
 
   <h2 class="text-2xl font-bold my-3" id="contact">Contact</h2>
