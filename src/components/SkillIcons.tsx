@@ -1,8 +1,6 @@
 import { createSignal } from "solid-js";
 import skills from "../data/skills";
 
-
-
 export default function SkillIcons() {
     return <div class="grid xs:grid-cols-2 sm:grid-cols-3">
         {
@@ -25,7 +23,8 @@ export default function SkillIcons() {
                     <div
                         class="transition duration-[0.1s] ease-[cubic-bezier(1,1,0,0)]"
                         classList={{
-                            "grayscale brightness-[0.2]": !lightsOn()
+                            "brightness-[0.2]": !lightsOn() && skill.iconType != "image",
+                            "grayscale": !lightsOn()
                         }}
                     >
                         {skill.iconType == "image" ? (

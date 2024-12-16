@@ -11,6 +11,7 @@ import {
 } from "solid-icons/si";
 const SolidIcon = "/assets/icon/solidIcon.svg";
 const MCIcon = "/assets/icon/minecraft.svg";
+const CSSLogo = "/assets/icon/css.svg";
 
 export default [
     {
@@ -45,8 +46,8 @@ export default [
     },
     {
         name: "CSS",
-        icon: SiCss3,
-        colour: "#51A4EE",
+        iconType: "image",
+        icon: CSSLogo,
     },
     {
         name: "Tailwind CSS",
