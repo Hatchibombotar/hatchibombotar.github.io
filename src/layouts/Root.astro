@@ -1,6 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-
+import "../main.css";
 ---
 
 <!doctype html>
@@ -17,26 +16,8 @@ import { ViewTransitions } from "astro:transitions";
     <meta name="color-scheme" content="light" />
 
     <title>Hatchibombotar</title>
-    <!-- <ViewTransitions fallback="none" /> -->
   </head>
   <body class="bg-gray-100">
     <slot />
   </body>
 </html>
-<style is:global>
-  *::-webkit-scrollbar {
-    @apply w-2.5 h-2.5 rounded-full;
-    background: #fcfcfc;
-  }
-
-  /* Handle */
-  *::-webkit-scrollbar-thumb {
-    @apply w-2.5 h-2.5 rounded-full;
-    background: #c4c4c4;
-  }
-
-  /* Handle on hover */
-  *::-webkit-scrollbar-thumb:hover {
-    background: #a2a2a2;
-  }
-</style>

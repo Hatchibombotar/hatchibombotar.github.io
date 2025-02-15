@@ -17,7 +17,7 @@ export default function SkillIcons() {
                     }
                 }
                 return <button
-                    class="flex xs:justify-normal justify-center items-center m-2 text-left"
+                    class="flex xs:justify-normal justify-center items-center m-2 text-left cursor-pointer"
                     onClick={() => toggleLights()}
                 >
                     <div
