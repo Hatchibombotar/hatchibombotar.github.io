@@ -1,16 +1,13 @@
 import {
     SiJavascript,
     SiHtml5,
-    SiCss3,
     SiPython,
     SiTypescript,
     SiTailwindcss,
     SiAstro,
-    SiSass,
     SiGo,
 } from "solid-icons/si";
 const SolidIcon = "/assets/icon/solidIcon.svg";
-const MCIcon = "/assets/icon/minecraft.svg";
 const CSSLogo = "/assets/icon/css.svg";
 
 export default [
