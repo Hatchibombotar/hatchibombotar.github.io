@@ -3,26 +3,25 @@ import { FiLink, FiGithub, FiExternalLink } from "solid-icons/fi";
 
 const {post} = Astro.props
 ---
-<div class="flex flex-col-reverse items-center sm:items-start sm:flex-row gap-3 my-2">
-  <div class="grow relative">
-    <div class="hidden sm:block absolute -left-4">•</div>
-    <h3 class="font-semibold">{post.title}</h3>
+<div class="flex flex-col items-center sm:items-start sm:flex-row gap-2 border-2 bg-gray-200/30 p-1 rounded-xl w-50 sm:w-auto">
+  <img class="w-48 rounded-md" src={post.image} />
+  <div class="sm:w-4/7">
+    <h3 class="font-bold">{post.title}</h3>
     <p class="text-xs text-neutral-800">{post.date}</p>
     <p class="text-sm mt-1">{post.description}</p>
-    <div class="flex justify-center sm:justify-start mt-4 gap-2">
-      {post.links.map((link: any) => {
-        return (
-          <a
-            href={link.url}
-            target="_blank"
-            class="bg-black text-white fill-white px-2 py-1 rounded-md flex gap-2 items-center"
-          >
-            <FiExternalLink class="text-lg" />
-            <span>{link.name}</span>
-          </a>
-        );
-      })}
-    </div>
   </div>
-  <img class="max-h-36 max-w-[12rem] rounded-md" src={post.image} />
+  <div class="flex flex-col justify-center sm:justify-start gap-2 m-1 mt-auto mb-2 sm:mb-1 sm:mt-1 sm:w-3/7">
+    {post.links.map((link: any) => {
+      return (
+        <a
+          href={link.url}
+          target="_blank"
+          class="bg-black text-white fill-white px-2 py-1 rounded-md flex gap-2 items-center"
+        >
+          <FiExternalLink class="text-lg" />
+          <span>{link.name}</span>
+        </a>
+      );
+    })}
+  </div>
 </div>

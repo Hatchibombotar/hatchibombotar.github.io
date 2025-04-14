@@ -1,7 +1,7 @@
 ---
 title: Mini Jam 153
 date: "March 2024"
-description: "My first game jam submission. Built with Go and Ebitengine (a games library). I came 92nd out of 231."
+description: "My first time entering a game jam. I used Go and the Ebitengine games library. I placed 92nd of 231 entries."
 links:
   - name: "Play Game"
     url: "https://hatchibombotar.itch.io/fishing-for-gold"

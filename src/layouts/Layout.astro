@@ -1,4 +1,5 @@
 ---
+import NavLink from "../components/NavLink.astro";
 import Root from "./Root.astro";
 
 const logo = "/assets/logo_small.png";
@@ -8,7 +9,7 @@ const logo = "/assets/logo_small.png";
   <div class="mx-auto max-w-2xl px-4 text-center sm:text-left pt-5">
     <header class="pt-8">
       <div class="flex items-center justify-center sm:justify-normal">
-        <img src={logo} class="h-16" transition:name="header-icon" />
+        <img src={logo} class="h-16 aspect-[81/100]" transition:name="header-icon" />
         <div class="mx-4 text-left">
           <h1 class="text-3xl font-semibold" transition:name="header-text">
             Hatchibombotar
@@ -17,11 +18,11 @@ const logo = "/assets/logo_small.png";
         </div>
       </div>
       <nav class="mt-4 mb-2 underline-offset-2">
-        <a class="underline" href="/">Home</a>
-        <span>/</span>
-        <a class="underline" href="/minecraft">Minecraft Marketplace</a>
-        <span>/</span>
-        <a class="underline" href="/contact">Contact</a>
+        <NavLink href="/">Home</NavLink>
+        <span>|</span>
+        <NavLink href="/minecraft">Minecraft Marketplace</NavLink>
+        <span>|</span>
+        <NavLink href="/contact">Contact</NavLink>
       </nav>
     </header>
     <hr class="my-5" transition:name="header-seperator" />

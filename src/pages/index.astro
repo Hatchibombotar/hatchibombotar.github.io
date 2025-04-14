@@ -6,6 +6,7 @@ import Layout from "../layouts/Layout.astro";
 import FeedPost from "../components/FeedPost.astro";
 
 import SkillIcons from "../components/SkillIcons"
+import ContactSection from "../components/ContactSection.astro";
 
 const logo = "/assets/logo_small.png";
 
@@ -26,8 +27,11 @@ const postCollectionInOrder = await Promise.all(
 ---
 
 <Layout>
-  <h2 class="text-2xl font-bold my-3">Recent Projects</h2>
-  <div class="flex flex-col">
+  <div class="flex flex-col sm:flex-row items-center justify-between flex-wrap my-3">
+    <h2 class="text-2xl font-bold">Recent Projects</h2>
+    <a href="/projects" class="underline font-semibold mx-1">View All</a>
+  </div>
+  <div class="flex justify-center flex-row flex-wrap sm:flex-col gap-2">
     {
       postCollectionInOrder.slice(0, 3).map((postFile) => {
         const post = postFile.data;
@@ -37,7 +41,6 @@ const postCollectionInOrder = await Promise.all(
       })
     }
   </div>
-  <a href="/projects" class="underline">View {postCollectionInOrder.length} More</a>
 
   <hr class="my-5" />
 
@@ -47,23 +50,6 @@ const postCollectionInOrder = await Promise.all(
 
   <h2 class="text-2xl font-bold my-3" id="contact">Contact</h2>
 
-  <ul class="prose underline-offset-2">
-    <li>
-      <div class="flex items-center gap-2">
-        <span>Discord: </span>
-        <a href="https://discord.com/users/629396893440671765" target="_blank">
-          @hatchibombotar
-        </a>
-      </div>
-    </li>
-    <li>
-      <div class="flex items-center gap-2">
-        <span>Email: </span>
-        <a href="mailto:hatchibombotar.mc@gmail.com" target="_blank">
-          hatchibombotar.mc@gmail.com
-        </a>
-      </div>
-    </li>
-  </ul>
+  <ContactSection/>
 
 </Layout>

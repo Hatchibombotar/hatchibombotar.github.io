@@ -18,7 +18,7 @@ const postCollectionInOrder = await Promise.all(
 
 <Layout>
   <h2 class="text-2xl font-bold my-3">All Projects</h2>
-  <div class="flex flex-col">
+  <div class="flex justify-center flex-row flex-wrap sm:flex-col gap-2">
     {
       postCollectionInOrder.map((postFile) => {
         const post = postFile.data;
