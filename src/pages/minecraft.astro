@@ -1,4 +1,5 @@
 ---
+import MinecraftAddon from "../components/MinecraftAddon.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { formatDate } from "../utils";
@@ -15,12 +16,6 @@ type Submissions = {
   }[];
 };
 
-const mcpedl_submissions = (await (async () => {
-  const req = await fetch(
-    `https://api.mcpedl.com/api/submissions?user_nickname=${"hatchibombotar"}&include_skins=1&per_page=10&page=1`
-  );
-  return await req.json();
-})()) as Submissions;
 
 const ignore_submissions = [
   "hoax-shader",
@@ -85,29 +80,31 @@ const ignore_submissions = [
 
   <hr class="my-4" />
   <h2 class="text-xl font-semibold mb-2">Free Published Add-Ons</h2>
-  <div class="grid grid-cols-2 gap-8">
-    {
-      mcpedl_submissions.data
-        .filter(({ slug }) => !ignore_submissions.includes(slug))
-        .map(({ title, image, update_date, publish_date, slug }) => (
-          <a
-            class="group cursor-pointer"
-            target="_blank"
-            href={"https://mcpedl.com/" + slug}
-          >
-            <img src={image} class="mb-2 group-hover:brightness-105" />
-            <h2 class="font-semibold my-1 group-hover:underline underline-offset-4 group-hover:text-green-700">
-              {title}
-            </h2>
-            <p class="text-xs text-neutral-700">
-              {formatDate(
-                new Date(
-                  update_date != "0" ? update_date : publish_date
-                ).toDateString()
-              )}
-            </p>
-          </a>
-        ))
-    }
+  <div class="grid grid-cols-2 gap-4">
+    <MinecraftAddon
+      title="Bundlepacks (Backpacks)"
+      image="https://github.com/Hatchibombotar/bundlepacks-addon/raw/master/assets/banner.png"
+      href="https://github.com/Hatchibombotar/bundlepacks-addon"
+    />
+    <MinecraftAddon
+      title="Waypoints Add-on"
+      image="https://github.com/Hatchibombotar/waypoints-addon/raw/master/assets/banner.png"
+      href="https://github.com/Hatchibombotar/waypoints-addon"
+    />
+    <MinecraftAddon
+      title="Graves"
+      image="https://github.com/Hatchibombotar/graves-addon/raw/main/assets/banner.png"
+      href="https://github.com/Hatchibombotar/graves-addon"
+    />
+    <MinecraftAddon
+      title="Fake Blocks (Camouflage Blocks)"
+      image="https://github.com/Hatchibombotar/fake-blocks-addon/raw/main/assets/banner.png"
+      href="https://github.com/Hatchibombotar/fake-blocks-addon"
+    />
+    <MinecraftAddon
+      title="Lava Sponges"
+      image="https://github.com/Hatchibombotar/lava-sponges-addon/raw/main/assets/banner.png"
+      href="https://github.com/Hatchibombotar/lava-sponges-addon"
+    />
   </div>
 </Layout>
