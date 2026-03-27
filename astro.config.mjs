@@ -12,6 +12,11 @@ export default defineConfig({
     assets: "astro"
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    resolve: {
+      noExternal: [
+        "solid-icons"
+      ]
+    }
   }
 });
