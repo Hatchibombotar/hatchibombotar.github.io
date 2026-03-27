@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 18
+      - name: Use Node.js 22
         uses: actions/setup-node@v1
         with:
-          node-version: 18
+          node-version: 22
       - name: Install and Build 🔧
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
